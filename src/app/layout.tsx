@@ -30,6 +30,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MFZH0HM64"></script>
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5MFZH0HM64');
+        `}} />
+      </head>
       <body className={`${caveat.variable} ${nunito.variable} antialiased`}>
         <Navbar />
         {children}
