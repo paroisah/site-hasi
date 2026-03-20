@@ -113,9 +113,9 @@ export default function ServicosHub() {
         <p className="font-nunito text-creme/55 text-sm mb-5">
           não sabe por onde começar?
         </p>
-        <Link href="/contato" className="btn-secondary text-base px-8 py-3.5">
+        <a href="https://tally.so/r/OD0Kek" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base px-8 py-3.5">
           fazer diagnóstico gratuito →
-        </Link>
+        </a>
       </section>
     </main>
   );

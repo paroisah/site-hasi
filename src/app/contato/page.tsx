@@ -81,7 +81,7 @@ export default function Contato() {
                 </p>
               </div>
               <a
-                href="https://forms.gle/LINK_DO_FORMULARIO"
+                href="https://tally.so/r/OD0Kek"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary self-start"

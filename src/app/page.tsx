@@ -68,9 +68,9 @@ export default function Home() {
         </p>
 
         <div className="flex items-center justify-center gap-4 flex-wrap">
-          <Link href="/contato" className="btn-primary text-base px-8 py-3.5">
+          <a href="https://tally.so/r/OD0Kek" target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-8 py-3.5">
             quero meu diagnóstico →
-          </Link>
+          </a>
           <Link href="/portfolio" className="btn-ghost text-base px-8 py-3.5">
             ver portfólio
           </Link>
@@ -174,9 +174,9 @@ export default function Home() {
             sua marca pronta pra ser percebida{" "}
             <span className="text-roxo">diferente</span>.
           </h2>
-          <Link href="/contato" className="btn-secondary text-base px-8 py-3.5">
+          <a href="https://tally.so/r/OD0Kek" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base px-8 py-3.5">
             fazer diagnóstico gratuito →
-          </Link>
+          </a>
         </div>
       </section>
     </main>

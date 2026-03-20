@@ -242,13 +242,15 @@ export default function ServicePage({
           }}
         >
           <p className="font-nunito text-creme/65 text-base mb-6">{ctaFrase}</p>
-          <Link
-            href="/contato"
+          <a
+            href="https://tally.so/r/OD0Kek"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-pill px-8 py-3.5 font-nunito font-semibold text-sm text-white transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 inline-flex items-center gap-1"
             style={{ backgroundColor: cor }}
           >
             {ctaTexto}
-          </Link>
+          </a>
         </div>
       </section>
     </main>
