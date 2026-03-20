@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #212224;
+    color: #fffbf0;
+    font-family: var(--font-nunito), sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-caveat), cursive;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-roxo text-white rounded-pill px-8 py-3 font-nunito font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 inline-flex items-center gap-1;
+  }
+
+  .btn-secondary {
+    @apply bg-laranja text-white rounded-pill px-8 py-3 font-nunito font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 inline-flex items-center gap-1;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent border border-white/20 text-creme/55 rounded-pill px-8 py-3 font-nunito font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:opacity-85 inline-flex items-center gap-1;
+  }
+
+  .badge {
+    @apply font-nunito text-[11px] uppercase tracking-[1.5px] rounded-pill px-3 py-1 border;
+  }
+
+  .service-card {
+    @apply bg-card rounded-card p-6 transition-all duration-200 hover:-translate-y-0.5;
+  }
+
+  .divider {
+    @apply border-t border-white/[0.06] mx-7;
+  }
+}
