@@ -22,7 +22,7 @@ export const posts: Post[] = [
     categoria: "empreendedorismo",
     previa: "Existe uma diferença enorme entre ter seguidores e ter uma comunidade. Uma marca defendida é uma marca com alma.",
     leitura: "6 min de leitura",
-    data: "10 jan 2025",
+    data: "15 jul 2025",
     destaque: true,
     conteudo: [
       {
@@ -90,7 +90,7 @@ export const posts: Post[] = [
     categoria: "instagram",
     previa: "Antes de culpar o algoritmo, veja o que realmente está acontecendo com o seu conteúdo.",
     leitura: "4 min de leitura",
-    data: "25 jan 2025",
+    data: "12 jun 2025",
     destaque: false,
     conteudo: [
       {
@@ -145,7 +145,7 @@ export const posts: Post[] = [
     categoria: "marketing",
     previa: "O comportamento do consumidor feminino está mudando. Veja como se posicionar à frente.",
     leitura: "5 min de leitura",
-    data: "8 fev 2025",
+    data: "14 fev 2025",
     destaque: false,
     conteudo: [
       {
@@ -204,7 +204,7 @@ export const posts: Post[] = [
     categoria: "empreendedorismo",
     previa: "Posicionamento não é nicho. Entenda a diferença e como isso impacta diretamente suas vendas.",
     leitura: "7 min de leitura",
-    data: "22 fev 2025",
+    data: "18 mai 2025",
     destaque: false,
     conteudo: [
       {
@@ -259,7 +259,7 @@ export const posts: Post[] = [
     categoria: "instagram",
     previa: "Consistência não é sobre quantidade — é sobre estratégia. Aprenda a fazer mais com menos.",
     leitura: "5 min de leitura",
-    data: "8 mar 2025",
+    data: "10 abr 2025",
     destaque: false,
     conteudo: [
       {
@@ -311,7 +311,7 @@ export const posts: Post[] = [
     categoria: "marketing",
     previa: "Marcas que contam histórias vendem mais, fidelizam mais e são mais lembradas. Aprenda como.",
     leitura: "8 min de leitura",
-    data: "22 mar 2025",
+    data: "20 mar 2025",
     destaque: false,
     conteudo: [
       {
