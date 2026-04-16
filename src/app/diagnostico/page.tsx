@@ -49,6 +49,7 @@ export default function Diagnostico() {
   });
 
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const set = (field: string, value: string) =>
     setForm((f) => ({ ...f, [field]: value }));
@@ -66,7 +67,10 @@ export default function Diagnostico() {
         "x-ZS81NblmWK4Jjp6"
       );
       setStatus("success");
-    } catch {
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : JSON.stringify(err);
+      console.error("EmailJS error:", err);
+      setErrorMsg(msg);
       setStatus("error");
     }
   };
@@ -249,9 +253,10 @@ export default function Diagnostico() {
         </Field>
 
         {status === "error" && (
-          <p className="font-nunito text-red-400 text-sm text-center">
-            Ops! Algo deu errado. Tente novamente.
-          </p>
+          <div className="font-nunito text-red-400 text-sm text-center">
+            <p>Ops! Algo deu errado.</p>
+            {errorMsg && <p className="text-xs mt-1 opacity-75">{errorMsg}</p>}
+          </div>
         )}
 
         <button
