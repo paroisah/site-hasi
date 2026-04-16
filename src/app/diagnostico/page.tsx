@@ -62,7 +62,7 @@ export default function Diagnostico() {
       await emailjs.send(
         "service_3yi3jxf",
         "template_rzvpqe",
-        { ...form, versao_diagnostico: versao },
+        { ...form, name: form.nome, versao_diagnostico: versao },
         "x-ZS81NblmWK4Jjp6"
       );
       setStatus("success");
