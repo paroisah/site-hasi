@@ -85,9 +85,13 @@ export default function Diagnostico() {
           <h1 className="font-caveat font-bold text-4xl text-creme mb-4">
             diagnóstico recebido!
           </h1>
-          <p className="font-nunito text-creme/70 text-base leading-relaxed">
-            Obrigada por confiar na Hasi. Em breve você receberá seu diagnóstico
-            personalizado no e-mail informado. 💜
+          <p className="font-nunito text-creme/70 text-base leading-relaxed mb-6">
+            Obrigada por confiar na Hasi. Suas respostas foram recebidas e em
+            breve entraremos em contato pelo seu <strong className="text-creme">WhatsApp</strong> com
+            o diagnóstico completo personalizado pra você. 💜
+          </p>
+          <p className="font-nunito text-creme/40 text-sm">
+            Fique de olho nas mensagens!
           </p>
         </div>
       </main>
