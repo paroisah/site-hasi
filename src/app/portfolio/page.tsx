@@ -118,7 +118,7 @@ export default function Portfolio() {
                 desafio
               </p>
               <p className="font-nunito text-creme/70 text-sm leading-relaxed">
-                Marca com grande presença offline mas comunicação digital fragmented, sem identidade clara e sem estratégia de employer branding.
+                Marca com grande presença offline mas comunicação digital fragmentada, sem identidade clara e sem estratégia de employer branding.
               </p>
             </div>
             <div>
@@ -188,7 +188,7 @@ export default function Portfolio() {
         <p className="font-nunito text-creme/60 text-base mb-6">
           quer que sua marca seja o próximo case?
         </p>
-        <a href="https://tally.so/r/OD0Kek" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base px-8 py-3.5">
+        <a href="/diagnostico" className="btn-secondary text-base px-8 py-3.5">
           fazer diagnóstico gratuito →
         </a>
       </section>

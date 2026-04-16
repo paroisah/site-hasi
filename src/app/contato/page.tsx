@@ -35,8 +35,7 @@ const servicos = [
 
 export default function Contato() {
   return (
-    <>
-      <main>
+    <main>
         {/* ── HERO ── */}
         <section className="max-w-6xl mx-auto px-6 pt-24 pb-16">
           <h1 className="font-caveat font-bold text-5xl md:text-6xl text-creme leading-tight">
@@ -164,59 +163,6 @@ export default function Contato() {
             ))}
           </div>
         </section>
-      </main>
-
-      {/* ── RODAPÉ ── */}
-      <footer
-        className="border-t mt-8"
-        style={{ borderColor: "rgba(255,255,255,0.06)" }}
-      >
-        <div className="max-w-6xl mx-auto px-6 py-12">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            {/* Logo + tagline */}
-            <div>
-              <div className="flex items-center gap-0.5 mb-2">
-                <span className="text-roxo text-lg leading-none">•</span>
-                <span className="font-caveat font-bold text-2xl text-creme leading-none">
-                  hasi
-                </span>
-                <span className="text-ciano text-lg leading-none">•</span>
-              </div>
-              <p className="font-nunito text-creme/35 text-xs uppercase tracking-widest">
-                consultoria estratégica de conteúdo
-              </p>
-            </div>
-
-            {/* Links */}
-            <nav className="flex flex-wrap gap-5">
-              {[
-                { href: "/sobre", label: "sobre" },
-                { href: "/servicos", label: "serviços" },
-                { href: "/portfolio", label: "portfólio" },
-                { href: "/blog", label: "blog" },
-                { href: "https://instagram.com/hasi", label: "instagram" },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="font-nunito text-xs text-creme/40 hover:text-creme/70 transition-opacity duration-150 uppercase tracking-wider"
-                  {...(link.href.startsWith("http")
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          <div className="divider mt-8 mb-6 mx-0" />
-
-          <p className="font-nunito text-creme/25 text-xs text-center">
-            © 2025 Hasi. Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
-    </>
+    </main>
   );
 }
