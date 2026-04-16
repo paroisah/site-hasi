@@ -27,16 +27,38 @@ export default function Blog() {
     <main>
       {/* ── HERO ── */}
       <section className="max-w-6xl mx-auto px-6 pt-24 pb-16">
-        <Image
-          src="/logo_blog.png"
-          alt="Marca, Querida!"
-          width={340}
-          height={180}
-          className="w-64 md:w-80 h-auto"
-        />
-        <p className="font-nunito text-creme/50 text-sm mt-4">
-          uma newsletter sobre marcas, conteúdo, narrativa, estética e cultura pop para quem quer construir presença com mais repertório e menos repetição.
-        </p>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+          {/* Esquerda: logo + tagline */}
+          <div className="flex-1">
+            <Image
+              src="/logo_blog.png"
+              alt="Marca, Querida!"
+              width={340}
+              height={180}
+              className="w-64 md:w-80 h-auto"
+            />
+            <p className="font-nunito text-creme/50 text-sm mt-4 max-w-sm">
+              uma newsletter sobre marcas, conteúdo, narrativa, estética e cultura pop para quem quer construir presença com mais repertório e menos repetição.
+            </p>
+          </div>
+
+          {/* Direita: formulário de inscrição */}
+          <div
+            className="flex-1 rounded-2xl p-6 md:p-8 flex flex-col gap-4"
+            style={{ backgroundColor: "rgba(12,192,223,0.06)", border: "0.5px solid rgba(12,192,223,0.2)" }}
+          >
+            <div>
+              <p className="font-nunito text-[11px] uppercase tracking-[2px] text-ciano/70 mb-1">newsletter</p>
+              <h2 className="font-caveat font-bold text-2xl md:text-3xl text-creme leading-tight">
+                receba cada edição direto no seu e-mail.
+              </h2>
+            </div>
+            <p className="font-nunito text-creme/50 text-xs leading-relaxed">
+              sem spam. só o que realmente importa para a sua marca.
+            </p>
+            <NewsletterForm />
+          </div>
+        </div>
       </section>
 
       <div className="divider" />
@@ -171,18 +193,6 @@ export default function Blog() {
         </section>
       )}
 
-      <div className="divider" />
-
-      {/* ── NEWSLETTER ── */}
-      <section className="max-w-4xl mx-auto px-6 py-16 text-center">
-        <h2 className="font-caveat font-bold text-3xl md:text-4xl text-creme mb-3">
-          conteúdo estratégico direto no seu e-mail.
-        </h2>
-        <p className="font-nunito text-creme/55 text-sm mb-8">
-          Sem spam. Só o que realmente importa para a sua marca.
-        </p>
-        <NewsletterForm />
-      </section>
     </main>
   );
 }
@@ -191,6 +201,7 @@ function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [erro, setErro] = useState("");
   const [enviado, setEnviado] = useState(false);
+  const [carregando, setCarregando] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -200,35 +211,66 @@ function NewsletterForm() {
       return;
     }
     setErro("");
-    setEnviado(true);
+    setCarregando(true);
+
+    const callbackName = `mc_cb_${Date.now()}`;
+    const url = `https://app.us4.list-manage.com/subscribe/post-json?u=e1e272d94e11100af7ac4a277&id=0d97cc1159&EMAIL=${encodeURIComponent(email)}&b_e1e272d94e11100af7ac4a277_0d97cc1159=&c=${callbackName}`;
+
+    (window as unknown as Record<string, unknown>)[callbackName] = (data: { result: string; msg: string }) => {
+      delete (window as unknown as Record<string, unknown>)[callbackName];
+      setCarregando(false);
+      if (data.result === "success") {
+        setEnviado(true);
+      } else {
+        const msg = data.msg?.toLowerCase() ?? "";
+        if (msg.includes("already subscribed")) {
+          setErro("esse e-mail já está inscrito.");
+        } else {
+          setErro("ops, algo deu errado. tente novamente.");
+        }
+      }
+    };
+
+    const script = document.createElement("script");
+    script.src = url;
+    script.onerror = () => {
+      delete (window as unknown as Record<string, unknown>)[callbackName];
+      setCarregando(false);
+      setErro("erro de conexão. tente novamente.");
+    };
+    document.head.appendChild(script);
   }
 
   if (enviado) {
     return (
-      <p className="font-nunito text-ciano text-sm">
-        ótimo! te vejo na caixa de entrada. ✓
+      <p className="font-nunito text-ciano text-sm font-semibold">
+        ótimo! te vejo na caixa de entrada ✓
       </p>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="seu@email.com"
-        className="flex-1 bg-card border border-white/10 rounded-pill px-5 py-3 font-nunito text-sm text-creme placeholder-creme/30 outline-none focus:border-ciano/40 transition-colors"
-      />
-      <button
-        type="submit"
-        className="font-nunito text-sm font-semibold text-preto rounded-pill px-6 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 whitespace-nowrap"
-        style={{ backgroundColor: "#0cc0df" }}
-      >
-        quero receber →
-      </button>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <div className="flex flex-col sm:flex-row gap-2">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="seu@email.com"
+          disabled={carregando}
+          className="flex-1 bg-card border border-white/10 rounded-pill px-5 py-3 font-nunito text-sm text-creme placeholder-creme/30 outline-none focus:border-ciano/40 transition-colors disabled:opacity-50"
+        />
+        <button
+          type="submit"
+          disabled={carregando}
+          className="font-nunito text-sm font-semibold text-preto rounded-pill px-6 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 whitespace-nowrap disabled:opacity-60"
+          style={{ backgroundColor: "#0cc0df" }}
+        >
+          {carregando ? "enviando..." : "quero receber →"}
+        </button>
+      </div>
       {erro && (
-        <p className="font-nunito text-laranja text-xs mt-2">{erro}</p>
+        <p className="font-nunito text-laranja text-xs">{erro}</p>
       )}
     </form>
   );
