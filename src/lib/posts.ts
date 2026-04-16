@@ -8,6 +8,7 @@ export type Post = {
   destaque: boolean;
   curtidas_inicial: number;
   compartilhamentos_inicial: number;
+  capa?: string;
   conteudo: Bloco[];
 };
 
@@ -28,6 +29,7 @@ export const posts: Post[] = [
     destaque: true,
     curtidas_inicial: 67,
     compartilhamentos_inicial: 41,
+    capa: "/capa-como-construir-uma-marca-que-as-pessoas-defendem.png",
     conteudo: [
       {
         tipo: "paragrafo",

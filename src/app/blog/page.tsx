@@ -127,13 +127,23 @@ export default function Blog() {
               className="hidden md:flex rounded-xl aspect-[4/3] items-center justify-center overflow-hidden"
               style={{ backgroundColor: `${corCategoria[postDestaque.categoria]}15`, border: `1px solid ${corCategoria[postDestaque.categoria]}30` }}
             >
-              <Image
-                src="/logo_blog.png"
-                alt="Marca, Querida!"
-                width={260}
-                height={140}
-                className="w-48 md:w-64 h-auto"
-              />
+              {postDestaque.capa ? (
+                <Image
+                  src={postDestaque.capa}
+                  alt={postDestaque.titulo}
+                  width={600}
+                  height={450}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <Image
+                  src="/logo_blog.png"
+                  alt="Marca, Querida!"
+                  width={260}
+                  height={140}
+                  className="w-48 md:w-64 h-auto"
+                />
+              )}
             </div>
           </div>
         </section>
@@ -154,13 +164,23 @@ export default function Blog() {
                   className="hidden md:flex aspect-[16/9] items-center justify-center overflow-hidden"
                   style={{ backgroundColor: `${corCategoria[post.categoria]}15`, borderBottom: `1px solid ${corCategoria[post.categoria]}30` }}
                 >
-                  <Image
-                    src="/logo_blog.png"
-                    alt="Marca, Querida!"
-                    width={180}
-                    height={96}
-                    className="w-32 h-auto"
-                  />
+                  {post.capa ? (
+                    <Image
+                      src={post.capa}
+                      alt={post.titulo}
+                      width={800}
+                      height={450}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <Image
+                      src="/logo_blog.png"
+                      alt="Marca, Querida!"
+                      width={180}
+                      height={96}
+                      className="w-32 h-auto"
+                    />
+                  )}
                 </div>
 
                 <div className="p-5 flex flex-col gap-3 flex-1">

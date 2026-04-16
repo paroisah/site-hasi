@@ -59,13 +59,23 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         className="rounded-2xl aspect-[2/1] flex items-center justify-center mb-10 overflow-hidden"
         style={{ backgroundColor: `${cor}12`, border: `1px solid ${cor}25` }}
       >
-        <Image
-          src="/logo_blog.png"
-          alt="Marca, Querida!"
-          width={320}
-          height={170}
-          className="w-56 md:w-72 h-auto"
-        />
+        {post.capa ? (
+          <Image
+            src={post.capa}
+            alt={post.titulo}
+            width={800}
+            height={400}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <Image
+            src="/logo_blog.png"
+            alt="Marca, Querida!"
+            width={320}
+            height={170}
+            className="w-56 md:w-72 h-auto"
+          />
+        )}
       </div>
 
       <div className="divider mb-10" />
