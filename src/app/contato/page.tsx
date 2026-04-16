@@ -51,7 +51,7 @@ export default function Contato() {
 
         {/* ── DUAS PORTAS ── */}
         <section className="max-w-6xl mx-auto px-6 py-16">
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-3 gap-5">
             {/* Porta 1: Diagnóstico */}
             <div
               className="rounded-2xl p-8 flex flex-col gap-5"
@@ -123,6 +123,44 @@ export default function Contato() {
                 className="btn-secondary self-start"
               >
                 falar pelo WhatsApp →
+              </a>
+            </div>
+
+            {/* Porta 3: Instagram */}
+            <div
+              className="rounded-2xl p-8 flex flex-col gap-5"
+              style={{
+                backgroundColor: "rgba(12,192,223,0.08)",
+                border: "0.5px solid rgba(12,192,223,0.2)",
+              }}
+            >
+              <span
+                className="badge self-start"
+                style={{
+                  color: "#0cc0df",
+                  backgroundColor: "rgba(12,192,223,0.12)",
+                  borderColor: "rgba(12,192,223,0.3)",
+                }}
+              >
+                nos acompanhe
+              </span>
+              <div>
+                <h2 className="font-caveat font-bold text-2xl md:text-3xl text-creme mb-2">
+                  Instagram
+                </h2>
+                <p className="font-nunito text-creme/60 text-sm leading-relaxed">
+                  Conteúdo sobre marca, narrativa e estratégia todo dia. Vem me
+                  acompanhar no Instagram e fazer parte dessa conversa.
+                </p>
+              </div>
+              <a
+                href="https://instagram.com/hasi.mkt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost self-start"
+                style={{ color: "#0cc0df", borderColor: "rgba(12,192,223,0.4)" }}
+              >
+                seguir @hasi.mkt →
               </a>
             </div>
           </div>
