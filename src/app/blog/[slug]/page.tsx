@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { posts, corCategoria, nomeCategoria } from "@/lib/posts";
 
 export function generateStaticParams() {
@@ -50,6 +51,20 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           <span className="text-creme/20">·</span>
           <span className="font-nunito text-creme/40 text-xs">{post.leitura}</span>
         </div>
+      </div>
+
+      {/* Capa */}
+      <div
+        className="rounded-2xl aspect-[2/1] flex items-center justify-center mb-10 overflow-hidden"
+        style={{ backgroundColor: `${cor}12`, border: `1px solid ${cor}25` }}
+      >
+        <Image
+          src="/logo_blog.png"
+          alt="Marca, Querida!"
+          width={320}
+          height={170}
+          className="w-56 md:w-72 h-auto"
+        />
       </div>
 
       <div className="divider mb-10" />

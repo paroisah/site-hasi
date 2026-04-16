@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { posts, corCategoria, nomeCategoria } from "@/lib/posts";
 
 const categorias = [
@@ -26,10 +27,16 @@ export default function Blog() {
     <main>
       {/* ── HERO ── */}
       <section className="max-w-6xl mx-auto px-6 pt-24 pb-16">
-        <h1 className="font-caveat font-bold text-5xl md:text-6xl text-creme leading-tight">
-          ideias que fazem sua marca{" "}
-          <span className="text-roxo">crescer</span>.
-        </h1>
+        <Image
+          src="/logo_blog.png"
+          alt="Marca, Querida!"
+          width={340}
+          height={180}
+          className="w-64 md:w-80 h-auto"
+        />
+        <p className="font-nunito text-creme/50 text-sm mt-4">
+          o blog da Hasi sobre marca, conteúdo e estratégia para o universo feminino.
+        </p>
       </section>
 
       <div className="divider" />
@@ -95,10 +102,16 @@ export default function Blog() {
             </div>
 
             <div
-              className="rounded-xl aspect-[4/3] flex items-center justify-center"
-              style={{ backgroundColor: "#333537" }}
+              className="rounded-xl aspect-[4/3] flex items-center justify-center overflow-hidden"
+              style={{ backgroundColor: `${corCategoria[postDestaque.categoria]}15`, border: `1px solid ${corCategoria[postDestaque.categoria]}30` }}
             >
-              <p className="font-nunito text-creme/20 text-sm">imagem do artigo</p>
+              <Image
+                src="/logo_blog.png"
+                alt="Marca, Querida!"
+                width={260}
+                height={140}
+                className="w-48 md:w-64 h-auto"
+              />
             </div>
           </div>
         </section>
@@ -116,10 +129,16 @@ export default function Blog() {
                 style={{ border: "0.5px solid rgba(255,255,255,0.06)" }}
               >
                 <div
-                  className="aspect-[16/9] flex items-center justify-center"
-                  style={{ backgroundColor: "#333537" }}
+                  className="aspect-[16/9] flex items-center justify-center overflow-hidden"
+                  style={{ backgroundColor: `${corCategoria[post.categoria]}15`, borderBottom: `1px solid ${corCategoria[post.categoria]}30` }}
                 >
-                  <p className="font-nunito text-creme/20 text-xs">imagem</p>
+                  <Image
+                    src="/logo_blog.png"
+                    alt="Marca, Querida!"
+                    width={180}
+                    height={96}
+                    className="w-32 h-auto"
+                  />
                 </div>
 
                 <div className="p-5 flex flex-col gap-3 flex-1">
