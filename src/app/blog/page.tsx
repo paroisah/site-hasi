@@ -20,8 +20,6 @@ export default function Blog() {
       ? posts
       : posts.filter((p) => p.categoria === categoriaAtiva);
 
-  const postDestaque = postsFiltrados.find((p) => p.destaque) || postsFiltrados[0];
-  const postsGrid = postsFiltrados.filter((p) => p.slug !== postDestaque?.slug);
 
   return (
     <main>
@@ -87,73 +85,11 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* ── POST DESTAQUE ── */}
-      {postDestaque && (
-        <section className="max-w-6xl mx-auto px-6 pb-10">
-          <div
-            className="rounded-2xl p-8 grid md:grid-cols-2 gap-8 items-center"
-            style={{ backgroundColor: "#2a2b2e", border: "0.5px solid rgba(255,255,255,0.07)" }}
-          >
-            <div className="flex flex-col gap-4">
-              <span
-                className="badge self-start"
-                style={{
-                  color: corCategoria[postDestaque.categoria],
-                  backgroundColor: `${corCategoria[postDestaque.categoria]}15`,
-                  borderColor: `${corCategoria[postDestaque.categoria]}35`,
-                }}
-              >
-                {nomeCategoria[postDestaque.categoria]}
-              </span>
-              <h2 className="font-caveat font-bold text-2xl md:text-3xl text-creme leading-tight">
-                {postDestaque.titulo}
-              </h2>
-              <p className="font-nunito text-creme/65 text-sm leading-relaxed">
-                {postDestaque.previa}
-              </p>
-              <div className="flex items-center gap-4 mt-2">
-                <span className="font-nunito text-creme/40 text-xs">{postDestaque.data}</span>
-                <span className="font-nunito text-creme/40 text-xs">{postDestaque.leitura}</span>
-                <Link
-                  href={`/blog/${postDestaque.slug}`}
-                  className="font-nunito text-sm font-semibold text-ciano hover:opacity-80 transition-opacity"
-                >
-                  ler →
-                </Link>
-              </div>
-            </div>
-
-            <div
-              className="hidden md:flex rounded-xl aspect-[4/3] items-center justify-center overflow-hidden"
-              style={{ backgroundColor: `${corCategoria[postDestaque.categoria]}15`, border: `1px solid ${corCategoria[postDestaque.categoria]}30` }}
-            >
-              {postDestaque.capa ? (
-                <Image
-                  src={postDestaque.capa}
-                  alt={postDestaque.titulo}
-                  width={600}
-                  height={450}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <Image
-                  src="/logo_blog.png"
-                  alt="Marca, Querida!"
-                  width={260}
-                  height={140}
-                  className="w-48 md:w-64 h-auto"
-                />
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ── GRID DE POSTS ── */}
-      {postsGrid.length > 0 && (
+      {postsFiltrados.length > 0 && (
         <section className="max-w-6xl mx-auto px-6 pb-16">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {postsGrid.map((post) => (
+            {postsFiltrados.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
