@@ -6,6 +6,8 @@ export type Post = {
   leitura: string;
   data: string;
   destaque: boolean;
+  curtidas_inicial: number;
+  compartilhamentos_inicial: number;
   conteudo: Bloco[];
 };
 
@@ -24,6 +26,8 @@ export const posts: Post[] = [
     leitura: "6 min de leitura",
     data: "10 dez 2025",
     destaque: true,
+    curtidas_inicial: 67,
+    compartilhamentos_inicial: 41,
     conteudo: [
       {
         tipo: "paragrafo",
@@ -92,6 +96,8 @@ export const posts: Post[] = [
     leitura: "4 min de leitura",
     data: "15 out 2025",
     destaque: false,
+    curtidas_inicial: 48,
+    compartilhamentos_inicial: 29,
     conteudo: [
       {
         tipo: "paragrafo",
@@ -147,6 +153,8 @@ export const posts: Post[] = [
     leitura: "5 min de leitura",
     data: "14 fev 2025",
     destaque: false,
+    curtidas_inicial: 53,
+    compartilhamentos_inicial: 34,
     conteudo: [
       {
         tipo: "paragrafo",
@@ -206,6 +214,8 @@ export const posts: Post[] = [
     leitura: "7 min de leitura",
     data: "12 ago 2025",
     destaque: false,
+    curtidas_inicial: 61,
+    compartilhamentos_inicial: 37,
     conteudo: [
       {
         tipo: "paragrafo",
@@ -261,6 +271,8 @@ export const posts: Post[] = [
     leitura: "5 min de leitura",
     data: "8 jun 2025",
     destaque: false,
+    curtidas_inicial: 44,
+    compartilhamentos_inicial: 26,
     conteudo: [
       {
         tipo: "paragrafo",
@@ -313,6 +325,8 @@ export const posts: Post[] = [
     leitura: "8 min de leitura",
     data: "20 abr 2025",
     destaque: false,
+    curtidas_inicial: 58,
+    compartilhamentos_inicial: 33,
     conteudo: [
       {
         tipo: "paragrafo",

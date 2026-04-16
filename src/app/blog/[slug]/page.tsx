@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { posts, corCategoria, nomeCategoria } from "@/lib/posts";
+import PostInteracoes from "@/components/PostInteracoes";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -136,6 +137,15 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       </article>
 
       <div className="divider mt-12 mb-10" />
+
+      {/* Curtir / Salvar / Compartilhar + Comentários */}
+      <PostInteracoes
+        slug={post.slug}
+        curtidas_inicial={post.curtidas_inicial}
+        compartilhamentos_inicial={post.compartilhamentos_inicial}
+      />
+
+      <div className="divider my-10" />
 
       {/* CTA */}
       <div
