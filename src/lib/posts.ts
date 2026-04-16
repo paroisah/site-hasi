@@ -92,6 +92,7 @@ export const posts: Post[] = [
   },
   {
     slug: "por-que-sua-taxa-de-engajamento-caiu",
+    capa: "/capa-por-que-sua-taxa-de-engajamento-caiu.png",
     titulo: "Por que sua taxa de engajamento caiu — e o que fazer agora",
     categoria: "instagram",
     previa: "Antes de culpar o algoritmo, veja o que realmente está acontecendo com o seu conteúdo.",
@@ -149,6 +150,7 @@ export const posts: Post[] = [
   },
   {
     slug: "tendencias-de-conteudo-2025-mercado-feminino",
+    capa: "/capa-tendencias-de-conteudo-mercado-feminino-2025.png",
     titulo: "Tendências de conteúdo que vão dominar o mercado feminino em 2025",
     categoria: "marketing",
     previa: "O comportamento do consumidor feminino está mudando. Veja como se posicionar à frente.",
@@ -210,6 +212,7 @@ export const posts: Post[] = [
   },
   {
     slug: "posicionamento-de-marca-o-erro-que-a-maioria-comete",
+    capa: "/capa-posicionamento-de-marca-o-erro-que-a-maioria-comete.png",
     titulo: "Posicionamento de marca: o erro que a maioria das empreendedoras comete",
     categoria: "empreendedorismo",
     previa: "Posicionamento não é nicho. Entenda a diferença e como isso impacta diretamente suas vendas.",
@@ -267,6 +270,7 @@ export const posts: Post[] = [
   },
   {
     slug: "conteudo-para-instagram-criar-menos-aparecer-mais",
+    capa: "/capa-conteudo-para-instagram-criar-menos-aparecer-mais.png",
     titulo: "Conteúdo para Instagram: como criar menos e aparecer mais",
     categoria: "instagram",
     previa: "Consistência não é sobre quantidade — é sobre estratégia. Aprenda a fazer mais com menos.",
@@ -321,6 +325,7 @@ export const posts: Post[] = [
   },
   {
     slug: "storytelling-para-marcas-guia-universo-feminino",
+    capa: "/capa-storytelling-para-marcas-guia-definitivo.png",
     titulo: "Storytelling para marcas: o guia definitivo para o universo feminino",
     categoria: "marketing",
     previa: "Marcas que contam histórias vendem mais, fidelizam mais e são mais lembradas. Aprenda como.",
