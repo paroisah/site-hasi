@@ -78,7 +78,7 @@ export default function PostInteracoes({ slug, curtidas_inicial, compartilhament
           title={salvou ? "Salvo!" : "Salvar artigo"}
         >
           <span className={`text-2xl transition-transform duration-150 ${salvou ? "scale-110" : "group-hover:scale-110"}`}>
-            {salvou ? "🔖" : "📄"}
+            {salvou ? "⭐" : "☆"}
           </span>
           <span
             className={`font-nunito text-sm font-semibold transition-colors ${
