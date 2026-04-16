@@ -35,7 +35,7 @@ export default function Blog() {
           className="w-64 md:w-80 h-auto"
         />
         <p className="font-nunito text-creme/50 text-sm mt-4">
-          o blog da Hasi sobre marca, conteúdo e estratégia para o universo feminino.
+          uma newsletter sobre marcas, conteúdo, narrativa, estética e cultura pop para quem quer construir presença com mais repertório e menos repetição.
         </p>
       </section>
 
