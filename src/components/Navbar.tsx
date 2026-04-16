@@ -56,14 +56,12 @@ export default function Navbar() {
         </ul>
 
         {/* CTA */}
-        <a
-          href="https://tally.so/r/OD0Kek"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/diagnostico"
           className="font-nunito text-[12px] font-semibold text-white bg-laranja rounded-pill px-4 py-2 transition-opacity duration-150 hover:opacity-85"
         >
           diagnóstico
-        </a>
+        </Link>
       </nav>
     </header>
   );
