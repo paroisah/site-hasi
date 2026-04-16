@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { posts, corCategoria, nomeCategoria } from "@/lib/posts";
 
 const categorias = [
   { id: "todos", label: "todos" },
@@ -9,75 +10,6 @@ const categorias = [
   { id: "instagram", label: "instagram e redes sociais" },
   { id: "marketing", label: "marketing em alta" },
 ];
-
-const posts = [
-  {
-    id: 1,
-    categoria: "empreendedorismo",
-    titulo: "Como construir uma marca que as pessoas defendem — e não apenas seguem",
-    previa:
-      "Existe uma diferença enorme entre ter seguidores e ter uma comunidade. Uma marca defendida é uma marca com alma.",
-    leitura: "6 min de leitura",
-    destaque: true,
-  },
-  {
-    id: 2,
-    categoria: "instagram",
-    titulo: "Por que sua taxa de engajamento caiu — e o que fazer agora",
-    previa:
-      "Antes de culpar o algoritmo, veja o que realmente está acontecendo com o seu conteúdo.",
-    leitura: "4 min de leitura",
-    destaque: false,
-  },
-  {
-    id: 3,
-    categoria: "marketing",
-    titulo: "Tendências de conteúdo que vão dominar o mercado feminino em 2025",
-    previa:
-      "O comportamento do consumidor feminino está mudando. Veja como se posicionar à frente.",
-    leitura: "5 min de leitura",
-    destaque: false,
-  },
-  {
-    id: 4,
-    categoria: "empreendedorismo",
-    titulo: "Posicionamento de marca: o erro que a maioria das empreendedoras comete",
-    previa:
-      "Posicionamento não é nicho. Entenda a diferença e como isso impacta diretamente suas vendas.",
-    leitura: "7 min de leitura",
-    destaque: false,
-  },
-  {
-    id: 5,
-    categoria: "instagram",
-    titulo: "Conteúdo para Instagram: como criar menos e aparecer mais",
-    previa:
-      "Consistência não é sobre quantidade — é sobre estratégia. Aprenda a fazer mais com menos.",
-    leitura: "5 min de leitura",
-    destaque: false,
-  },
-  {
-    id: 6,
-    categoria: "marketing",
-    titulo: "Storytelling para marcas: o guia definitivo para o universo feminino",
-    previa:
-      "Marcas que contam histórias vendem mais, fidelizam mais e são mais lembradas. Aprenda como.",
-    leitura: "8 min de leitura",
-    destaque: false,
-  },
-];
-
-const corCategoria: Record<string, string> = {
-  empreendedorismo: "#f76307",
-  instagram: "#8c52ff",
-  marketing: "#0cc0df",
-};
-
-const nomeCategoria: Record<string, string> = {
-  empreendedorismo: "empreendedorismo feminino",
-  instagram: "instagram e redes sociais",
-  marketing: "marketing em alta",
-};
 
 export default function Blog() {
   const [categoriaAtiva, setCategoriaAtiva] = useState("todos");
@@ -88,7 +20,7 @@ export default function Blog() {
       : posts.filter((p) => p.categoria === categoriaAtiva);
 
   const postDestaque = postsFiltrados.find((p) => p.destaque) || postsFiltrados[0];
-  const postsGrid = postsFiltrados.filter((p) => p.id !== postDestaque?.id);
+  const postsGrid = postsFiltrados.filter((p) => p.slug !== postDestaque?.slug);
 
   return (
     <main>
@@ -115,16 +47,8 @@ export default function Blog() {
                 className="font-nunito text-xs uppercase tracking-widest rounded-pill px-4 py-2 transition-all duration-200 border"
                 style={
                   isAtiva
-                    ? {
-                        backgroundColor: `${cor}20`,
-                        borderColor: `${cor}60`,
-                        color: cor,
-                      }
-                    : {
-                        backgroundColor: "transparent",
-                        borderColor: "rgba(255,255,255,0.12)",
-                        color: "rgba(255,251,240,0.45)",
-                      }
+                    ? { backgroundColor: `${cor}20`, borderColor: `${cor}60`, color: cor }
+                    : { backgroundColor: "transparent", borderColor: "rgba(255,255,255,0.12)", color: "rgba(255,251,240,0.45)" }
                 }
               >
                 {c.label}
@@ -139,10 +63,7 @@ export default function Blog() {
         <section className="max-w-6xl mx-auto px-6 pb-10">
           <div
             className="rounded-2xl p-8 grid md:grid-cols-2 gap-8 items-center"
-            style={{
-              backgroundColor: "#2a2b2e",
-              border: "0.5px solid rgba(255,255,255,0.07)",
-            }}
+            style={{ backgroundColor: "#2a2b2e", border: "0.5px solid rgba(255,255,255,0.07)" }}
           >
             <div className="flex flex-col gap-4">
               <span
@@ -162,11 +83,10 @@ export default function Blog() {
                 {postDestaque.previa}
               </p>
               <div className="flex items-center gap-4 mt-2">
-                <span className="font-nunito text-creme/40 text-xs">
-                  {postDestaque.leitura}
-                </span>
+                <span className="font-nunito text-creme/40 text-xs">{postDestaque.data}</span>
+                <span className="font-nunito text-creme/40 text-xs">{postDestaque.leitura}</span>
                 <Link
-                  href="#"
+                  href={`/blog/${postDestaque.slug}`}
                   className="font-nunito text-sm font-semibold text-ciano hover:opacity-80 transition-opacity"
                 >
                   ler →
@@ -174,7 +94,6 @@ export default function Blog() {
               </div>
             </div>
 
-            {/* Placeholder imagem */}
             <div
               className="rounded-xl aspect-[4/3] flex items-center justify-center"
               style={{ backgroundColor: "#333537" }}
@@ -190,12 +109,12 @@ export default function Blog() {
         <section className="max-w-6xl mx-auto px-6 pb-16">
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {postsGrid.map((post) => (
-              <div
-                key={post.id}
-                className="bg-card rounded-card overflow-hidden flex flex-col"
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="bg-card rounded-card overflow-hidden flex flex-col group hover:-translate-y-0.5 transition-all duration-200"
                 style={{ border: "0.5px solid rgba(255,255,255,0.06)" }}
               >
-                {/* Placeholder imagem */}
                 <div
                   className="aspect-[16/9] flex items-center justify-center"
                   style={{ backgroundColor: "#333537" }}
@@ -221,18 +140,13 @@ export default function Blog() {
                     {post.previa}
                   </p>
                   <div className="flex items-center justify-between pt-1">
-                    <span className="font-nunito text-creme/35 text-xs">
-                      {post.leitura}
-                    </span>
-                    <Link
-                      href="#"
-                      className="font-nunito text-xs font-semibold text-ciano hover:opacity-80 transition-opacity"
-                    >
+                    <span className="font-nunito text-creme/35 text-xs">{post.leitura}</span>
+                    <span className="font-nunito text-xs font-semibold text-ciano group-hover:opacity-80 transition-opacity">
                       ler →
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
@@ -295,9 +209,7 @@ function NewsletterForm() {
         quero receber →
       </button>
       {erro && (
-        <p className="font-nunito text-laranja text-xs text-left absolute mt-14">
-          {erro}
-        </p>
+        <p className="font-nunito text-laranja text-xs mt-2">{erro}</p>
       )}
     </form>
   );
