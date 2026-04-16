@@ -102,7 +102,7 @@ export default function Blog() {
             </div>
 
             <div
-              className="rounded-xl aspect-[4/3] flex items-center justify-center overflow-hidden"
+              className="hidden md:flex rounded-xl aspect-[4/3] items-center justify-center overflow-hidden"
               style={{ backgroundColor: `${corCategoria[postDestaque.categoria]}15`, border: `1px solid ${corCategoria[postDestaque.categoria]}30` }}
             >
               <Image
@@ -120,7 +120,7 @@ export default function Blog() {
       {/* ── GRID DE POSTS ── */}
       {postsGrid.length > 0 && (
         <section className="max-w-6xl mx-auto px-6 pb-16">
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {postsGrid.map((post) => (
               <Link
                 key={post.slug}
@@ -129,7 +129,7 @@ export default function Blog() {
                 style={{ border: "0.5px solid rgba(255,255,255,0.06)" }}
               >
                 <div
-                  className="aspect-[16/9] flex items-center justify-center overflow-hidden"
+                  className="hidden md:flex aspect-[16/9] items-center justify-center overflow-hidden"
                   style={{ backgroundColor: `${corCategoria[post.categoria]}15`, borderBottom: `1px solid ${corCategoria[post.categoria]}30` }}
                 >
                   <Image
