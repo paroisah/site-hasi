@@ -117,7 +117,7 @@ export default function Contato() {
                 </p>
               </div>
               <a
-                href="https://wa.me/5511937064657"
+                href="https://wa.me/5511925615526"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary self-start"
